@@ -9,4 +9,4 @@ let options = {
     }
 };
 
-defineTest(__dirname, 'removeparams', options, 'SingleScenarioFixture');
+defineTest(__dirname, 'removeparams', options, 'SimpleScenarioFixture');
