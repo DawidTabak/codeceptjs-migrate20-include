@@ -1,0 +1,33 @@
+{
+  "name": "codeceptjs-migrate20-include",
+  "version": "1.0.0-alpha.0",
+  "description": "Testing out jscodeshift functionality as preparation for codeceptjs dependency use migration.",
+  "main": "index.js",
+  "bin": {
+    "codeceptjs-migrate20-include": "./index.js"
+  },
+  "scripts": {
+    "test:jsc": "jscodeshift -t ./transformations/removeparams.js ./subjects/sample2_test.js -p -d --codeceptconfig=../subjects/codecept.conf.js",
+    "test:jsc:debug": "node --inspect-brk ./node_modules/jscodeshift/bin/jscodeshift.sh -t ./transformations/removeparams.js ./subjects/sample2_test.js -p -d --run-in-band --codeceptconfig=../subjects/codecept.conf.js",
+    "jsc": "jscodeshift",
+    "main:debug": "node --inspect-brk ./index.js -d -c ./subjects/codecept.conf.js -f ./**/*test.js",
+    "main": "node ./index.js -d -c ./subjects/codecept.conf.js -f ./subjects/**/*test.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "jscodeshift",
+    "codeceptjs",
+    "ast",
+    "codemod"
+  ],
+  "author": "Dawid Tabak",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.18.0",
+    "glob": "^7.1.3",
+    "jscodeshift": "^0.5.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
